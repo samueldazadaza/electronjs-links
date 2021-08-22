@@ -12,6 +12,10 @@ const parserResponse = text => {
     return parser.parseFromString(text, 'text/html');
 };
 
+const findTitle = (nodes) => {
+    return nodes.querySelector('title').innerText; //para buscar el titulo dentro del html
+}
+
 //events
 newLinkUrl.addEventListener('keyup', () =>{
     newLinkButton.disabled = !newLinkUrl.validity.valid;
@@ -23,5 +27,6 @@ newLinkForm.addEventListener('submit', async (e) => {
     const response = await fetch(url);
     const text = await response.text();  //convertir el html de la pagina en texto plano
     const html = parserResponse(text);
-    console.log(html)
+    const title = findTitle(html);
+    console.log(title)
 })
