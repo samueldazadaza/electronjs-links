@@ -46,6 +46,11 @@ const renderLinks = () => {
     linksSection.innerHTML = linksElements;
 }
 
+//para borrar input
+const clearForm = () => {
+    newLinkUrl.value = null;
+};
+
 //events
 renderLinks(); //para pintar luego que un enlace ha sido agregado
 
@@ -61,5 +66,12 @@ newLinkForm.addEventListener('submit', async (e) => {
     const html = parserResponse(text);
     const title = findTitle(html);
     storeLink(title, url);
+    clearForm();
     renderLinks(); //para pintar luego que un enlace ha sido agregado
 });
+
+//Eliminar datos
+clearStorageButton.addEventListener('click', () => {
+    localStorage.clear();
+    linksSection.innerHTML = '';
+})
