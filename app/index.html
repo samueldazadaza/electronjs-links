@@ -12,7 +12,7 @@
 
     <div class="error-message"></div>
 
-    <section class="add-new-link">
+    <section class="add-new-link mb-2">
         <form action="" class="new-link-form">
             <input type="url" class="new-link-url" placeholder="URL" size="50" required autofocus>
             <button type="submit" class="new-link-button btn bg-gray-700 text-gray-200 px-3 rounded" disabled>
@@ -21,7 +21,18 @@
         </form>
     </section>
 
-    <section class="links"></section>
+    <div class="grid grid-cols-3 bg-gray-100 px-3">
+        <div class="col-span-1">
+            <h3 class="text-center">TITULO PAG WEB</h3>
+        </div>
+        <div class="col-span-2">
+            <p class="text-blue-500 text-center">
+                LINK URL
+            </p>
+        </div>
+    </div>
+
+    <section class="links mt-2"></section>
     <section class="controls">
         <button class="clear-storage btn bg-gray-700 text-gray-200 rounded px-3">Clear Storage</button>
     </section>

@@ -27,11 +27,15 @@ const getLinks = () => {
 
 const createLinkElement = link => {
     return `
-        <div>
-            <h3>${link.title}</h3>
-            <p>
-                <a href="${link.url}">${link.url}</a>
-            </p>
+        <div class="grid grid-cols-3 shadow bg-red-100 m-2 rounded-3xl px-3">
+            <div class="col-span-1">
+                <h3>${link.title}</h3>
+            </div>
+            <div class="col-span-2">
+                <p class="text-blue-500">
+                    <a href="${link.url}">${link.url}</a>
+                </p>
+            </div>
         </div>
     `
 }
@@ -43,6 +47,8 @@ const renderLinks = () => {
 }
 
 //events
+renderLinks(); //para pintar luego que un enlace ha sido agregado
+
 newLinkUrl.addEventListener('keyup', () =>{
     newLinkButton.disabled = !newLinkUrl.validity.valid;
 });
