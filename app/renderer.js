@@ -51,6 +51,15 @@ const clearForm = () => {
     newLinkUrl.value = null;
 };
 
+const handleError = (error, url) => {
+    errormessage.innerHTML = `
+        Hubo un error agregando la URL: "${url}" : ${error.message}
+    `.trim();
+    setTimeout( () => {
+        errormessage:innerHTML = null;
+    }, 3000);
+} 
+
 //events
 renderLinks(); //para pintar luego que un enlace ha sido agregado
 
@@ -61,13 +70,17 @@ newLinkUrl.addEventListener('keyup', () =>{
 newLinkForm.addEventListener('submit', async (e) => {
     e.preventDefault(); //para no refrescar ventana al enviar formulario
     const url = newLinkUrl.value;
-    const response = await fetch(url);
-    const text = await response.text();  //convertir el html de la pagina en texto plano
-    const html = parserResponse(text);
-    const title = findTitle(html);
-    storeLink(title, url);
-    clearForm();
-    renderLinks(); //para pintar luego que un enlace ha sido agregado
+    try { //para comprobar ni hay errores
+        const response = await fetch(url);
+        const text = await response.text();  //convertir el html de la pagina en texto plano
+        const html = parserResponse(text);
+        const title = findTitle(html);
+        storeLink(title, url);
+        clearForm();
+        renderLinks(); //para pintar luego que un enlace ha sido agregado
+   } catch (error) {
+        handleError(error, url)
+    }
 });
 
 //Eliminar datos
