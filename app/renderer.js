@@ -6,6 +6,13 @@ const newLinkUrl = document.querySelector('.new-link-url');
 const newLinkButton = document.querySelector('.new-link-button');
 const clearStorageButton = document.querySelector('.clear-storage');
 
+//DOM APIs
+const parser = new DOMParser();
+const parserResponse = text => {
+    return parser.parseFromString(text, 'text/html');
+};
+
+//events
 newLinkUrl.addEventListener('keyup', () =>{
     newLinkButton.disabled = !newLinkUrl.validity.valid;
 });
@@ -15,5 +22,6 @@ newLinkForm.addEventListener('submit', async (e) => {
     const url = newLinkUrl.value;
     const response = await fetch(url);
     const text = await response.text();  //convertir el html de la pagina en texto plano
-    console.log(text)
+    const html = parserResponse(text);
+    console.log(html)
 })
