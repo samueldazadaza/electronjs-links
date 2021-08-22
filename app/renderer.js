@@ -29,7 +29,7 @@ const getLinks = () => {
 
 const createLinkElement = link => {
     return `
-        <div class="grid grid-cols-3 shadow bg-red-100 m-2 rounded-3xl px-3">
+        <div class="grid grid-cols-3 shadow bg-red-100 m-2 rounded-xl px-3">
             <div class="col-span-1">
                 <h3>${link.title}</h3>
             </div>
