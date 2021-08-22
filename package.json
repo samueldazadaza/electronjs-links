@@ -1,0 +1,15 @@
+{
+  "name": "P14-electronjs-links",
+  "version": "1.0.0",
+  "description": "",
+  "main": "./app/main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "keywords": [],
+  "author": "Samuel Daza <samueldazadaza@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "electron": "^13.2.1"
+  }
+}
