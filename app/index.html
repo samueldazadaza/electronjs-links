@@ -8,6 +8,26 @@
     <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
 </head>
 <body>
-    <h1 class="bg-blue-900 text-gray-200 text-center">hello world con electron :)</h1>
+    <h1 class="bg-blue-900 text-gray-200 text-center">My Favorite websites</h1>
+
+    <div class="error-message"></div>
+
+    <section class="add-new-link">
+        <form action="" class="new-link-form">
+            <input type="url" class="new-link-url" placeholder="URL" size="50" required autofocus>
+            <button type="submit" class="new-link-button btn bg-gray-700 text-gray-200 px-3 rounded" disabled>
+                Guardar
+            </button>
+        </form>
+    </section>
+
+    <section class="links"></section>
+    <section class="controls">
+        <button class="clear-storage btn bg-gray-700 text-gray-200 rounded px-3">Clear Storage</button>
+    </section>
+
+    <script>
+        require('./renderer');
+    </script>
 </body>
 </html>
