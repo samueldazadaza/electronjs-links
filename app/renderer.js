@@ -5,3 +5,12 @@ const newLinkForm = document.querySelector('.new-link-form');
 const newLinkUrl = document.querySelector('.new-link-url');
 const newLinkButton = document.querySelector('.new-link-button');
 const clearStorageButton = document.querySelector('.clear-storage');
+
+newLinkUrl.addEventListener('keyup', () =>{
+    newLinkButton.disabled = !newLinkUrl.validity.valid;
+});
+
+newLinkForm.addEventListener('submit', (e) => {
+    e.preventDefault(); //para no refrescar ventana al enviar formulario
+    console.log(newLinkUrl.value);
+})
