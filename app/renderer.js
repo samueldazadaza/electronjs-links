@@ -10,7 +10,10 @@ newLinkUrl.addEventListener('keyup', () =>{
     newLinkButton.disabled = !newLinkUrl.validity.valid;
 });
 
-newLinkForm.addEventListener('submit', (e) => {
+newLinkForm.addEventListener('submit', async (e) => {
     e.preventDefault(); //para no refrescar ventana al enviar formulario
-    console.log(newLinkUrl.value);
+    const url = newLinkUrl.value;
+    const response = await fetch(url);
+    const text = await response.text();  //convertir el html de la pagina en texto plano
+    console.log(text)
 })
